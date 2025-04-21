@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { use } from 'react';
 
-const Countries = () => {
+const Countries = ({countriesPromise}) => {
+    const countries = use(countriesPromise);
+    console.log(countries)
+
     return (
         <div>
-            <h1>travling Countries</h1>
+            <h1>travling Countries: {countries.length}</h1>
+            {
+                countries.map(country => <Country></Country>)
+            }
         </div>
     );
 };
