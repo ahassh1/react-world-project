@@ -1,4 +1,5 @@
 import React, { use } from 'react';
+import Country from '../Country/Country';
 
 const Countries = ({countriesPromise}) => {
     const countries = use(countriesPromise);
@@ -8,7 +9,7 @@ const Countries = ({countriesPromise}) => {
         <div>
             <h1>travling Countries: {countries.length}</h1>
             {
-                countries.map(country => <Country></Country>)
+                countries.map(country => <Country country={country}></Country>)
             }
         </div>
     );
