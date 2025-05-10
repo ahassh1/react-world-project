@@ -1,17 +1,25 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import Country from '../Country/Country';
 import './Countries.css'
 
 const Countries = ({countriesPromise}) => {
+    const [visitedCountries,setVisitedCountries] =useState([])
+    console.log(handleVisitedCountries) 
     const countries = use(countriesPromise);
+    const handleVisitedCountries = () =>{
+        console.log('country visited clicked to be added')
+    }
     // console.log(countries)
 
     return (
         <div>
             <h1>travling Countries: {countries.length}</h1>
+            <h3>Travelled so far on go </h3>
          <div className='countries'>
                {
-                countries.map(country => <Country key={country.cca3} country={country}></Country>)
+                countries.map(country => <Country key={country.cca3}
+                    handleVisitedCountries={handleVisitedCountries}
+                    country={country}></Country>)
                
             }
          </div>
